@@ -1,0 +1,12 @@
+{
+  "name": "borabeber",
+  "displayName": "borabeber",
+  "expo": {
+    "name": "borabeber",
+    "slug": "borabeber",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
