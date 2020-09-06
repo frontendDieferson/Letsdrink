@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { ImageBackground, Image, StyleSheet, Text, Button, View, TextInput } from 'react-native';
+import { ImageBackground, Image, StyleSheet, Text, Button, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 
 
 
@@ -41,33 +41,36 @@ export default () => {
     return <AppLoading />;
   } else {
     return (
-      <ImageBackground source={require('./app/images/backgroundbb.png')} style={styles.background}>
+      <ImageBackground source={require('./src/assets/backgroundbb.png')} style={styles.background}>
         
       <View style={styles.container}>
-      <Image source={require('./app/images/logoborabeber.png')}></Image>
+      <Image source={require('./src/assets/logoborabeber.png')}></Image>
+      <Text style={styles.text}>Bora Beber?</Text>
 
-          <Text style={styles.text}>Bora Beber?</Text>
-        
-
-          
-       <View style={styles.cadastro}>
-         
-         <Text style={styles.cadastro}>Cadastrar</Text>
-       </View>
-
-       <View style={styles.cadastro}>
-         <Text style={styles.cadastro}>Login</Text>
-       </View>
-
-
-       
-
-         <StatusBar style="auto" />
       
+
       </View>
-      <View style={styles.convite} >
-         <Text style={styles.convite}>Indique Para os Amigos</Text>
-       </View>
+
+      <View style={styles.form}>
+      <TouchableOpacity style={styles.Button}>
+        <Text style={{ fontFamily: 'Roboto_300Light_Italic', fontSize: 24, color: '#FFF' }}> CADASTRAR</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity  style={styles.Button}>
+        <Text style={{ fontFamily: 'Roboto_300Light_Italic', fontSize: 24, color: '#FFF' }}> LOGIN</Text>
+      </TouchableOpacity>
+      </View>
+
+      <View style={styles.footer}>
+        <TouchableOpacity>
+        <Text 
+        style={{ fontFamily: 'Roboto_300Light', fontSize: 14, color: '#FFF' }}>
+          Indique para os Amigos 
+          <Image source={require('./src/assets/localização.png')}></Image>
+        </Text>
+        </TouchableOpacity>
+      </View>
+      
       </ImageBackground>
     );
   };
@@ -75,7 +78,7 @@ export default () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, justifyContent: 'center', alignItems: 'center' 
+  marginTop: 90, justifyContent: 'center', alignItems: 'center',
   },
   background: {
     flex: 1,
@@ -83,45 +86,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  
-  logo: {
-    marginTop: 10,
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'center'
+  form: {
+  flex: 1, justifyContent: 'center', alignItems: 'center' 
   },
   text: {
     fontFamily: 'Roboto_500Medium_Italic',
-    fontSize:  46,
+    fontSize:  42,
     color: '#FFF'
   },
-  cadastro: {
-    width: 352,
-    height: 52,
-    marginTop: 10,
+  Button: {
+    marginTop: 20,
     backgroundColor: '#024A13',
-    padding: 8,
-    color: '#FFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    fontSize: 24,
-
+    width: 332,
+    height: 52,
     borderRadius: 8,
-    fontFamily: 'Roboto_400Regular_Italic'
-      
-  },
-  convite:{
-    color: '#FFF',
-    fontSize: 14,
-    fontFamily: 'Roboto_300Light_Italic',
-
-    paddingBottom: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'column'
+    elevation: 8,
+
+  },
+  footer: {
+   alignItems: 'center',
+   justifyContent: 'center',
+   marginBottom: 20,
+   
+  
   }
+  
 });
 
 
